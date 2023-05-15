@@ -23,7 +23,7 @@ import warnings
 from astropy.io.fits.verify import VerifyWarning
 warnings.simplefilter('ignore', category=VerifyWarning)
 # If FITS header changed, Major.Minor version will be changed
-VERSION = "0.3.0"
+VERSION = "0.9.0"
 AUTHOR = "Iain Rosen <iainrosen@uvic.ca>"
 
 class SPE:
