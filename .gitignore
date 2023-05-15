@@ -7,3 +7,6 @@ __pycache__
 *.un*
 *.SPE
 .DS_Store
+build/*
+dist/*
+*.spec
