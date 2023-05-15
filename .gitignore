@@ -5,3 +5,5 @@ __pycache__
 *.swp
 *.swo
 *.un*
+*.SPE
+.DS_Store
