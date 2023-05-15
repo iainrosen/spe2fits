@@ -255,7 +255,7 @@ class SPE:
     # Some header to be added:  ROIinfo, type,
     # TODO save header defination to python
     @staticmethod
-    def loadHeadersDef(headerfile = "WINHEAD.TXT") -> [{}]:
+    def loadHeadersDef(headerfile = "WINHEAD.TXT"):
         """ load/parse header defination file
         """
         import extractHeaderDesc as H
