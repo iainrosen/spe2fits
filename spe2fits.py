@@ -12,21 +12,16 @@ NOTE little-endian assumed
 """
 
 import sys
-#sys.path.insert(0, '/home/jerryjia/project/marst/astropy/')
 import os
 import re
 import struct
 
 import numpy as np
-try:
-    from astropy.io import fits
-except:
-    print("Warning: module astropy not found, import pyfits instead")
-    import pyfits as fits
+from astropy.io import fits
 
 # If FITS header changed, Major.Minor version will be changed
 VERSION = "0.3.0"
-AUTHOR = "JerryJia <jiajerry@mail.ustc.edu.cn>"
+AUTHOR = "Iain Rosen <iainrosen@uvic.ca>"
 
 class SPE:
     SPE_CONSTS = {
@@ -141,7 +136,7 @@ class SPE:
     def loadSpeImg(self, index):
         """ return a list of images' data
         """
-        from collections import Iterable
+        from collections.abc import Iterable
         if isinstance(index, Iterable):
             index = list(index)
         else:
@@ -178,7 +173,7 @@ class SPE:
             hdu = fits.PrimaryHDU(data = dataArr,
                     header = self._fitshdr,
                     )
-            hdu.writeto(name, clobber = clobber, output_verify = output_verify)
+            hdu.writeto(name, output_verify, clobber)
 
     def spe2fits(self, **kwargs):
         """ Shortcut method for saving all frames in .SPE to FITS
