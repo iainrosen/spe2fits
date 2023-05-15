@@ -18,7 +18,10 @@ import struct
 
 import numpy as np
 from astropy.io import fits
-
+import warnings
+#ignore VerifyWarnings
+from astropy.io.fits.verify import VerifyWarning
+warnings.simplefilter('ignore', category=VerifyWarning)
 # If FITS header changed, Major.Minor version will be changed
 VERSION = "0.3.0"
 AUTHOR = "Iain Rosen <iainrosen@uvic.ca>"
@@ -256,7 +259,10 @@ class SPE:
         """ load/parse header defination file
         """
         import extractHeaderDesc as H
-        print(headerfile)
+        if not os.path.exists(headerfile):
+            print("Downloading header file required for conversion")
+            H.downloadHeaders()
+        print("Using header: "+headerfile)
         headers = H.getHeaders(headerfile)
         return headers
 

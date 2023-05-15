@@ -2,6 +2,7 @@
 
 import sys
 import re
+import requests
 
 # Try to match: "^# (type)  (key)  (offset) (description)$"
 pattern = re.compile(r"^#?\s+(?P<type>\w+)\s+(?P<key>[\w\[\]]+)\s+(?P<offset>\d+)(?P<comment>.*)$")
@@ -37,7 +38,10 @@ def getHeaders(filename) -> list:
                         )
                     )
     return metadata
-
+def downloadHeaders():
+    url = 'https://gist.github.com/iainrosen/6d767384027a3bcf4edc20a2abc7fb73/raw/a2445dc08b73092c4ad66e587c673b1015923fc5/WINHEAD.txt'
+    r = requests.get(url, allow_redirects=True)
+    open('WINHEAD.txt', 'wb').write(r.content)
 if __name__ == '__main__':
     filename = 'WINHEAD.TXT' if len(sys.argv) < 2 else sys.argv[1]
     metadata = getHeaders(filename)
