@@ -380,6 +380,13 @@ class SPE:
 
 if __name__ == '__main__':
     filename = sys.argv[1]
-    speHandler = SPE(filename)
-    speHandler.spe2fits()
+    if filename=="--all":
+        for i in os.listdir("."):
+            if i.endswith(".SPE"):
+                print("Now converting: "+i)
+                speHandler = SPE(i)
+                speHandler.spe2fits()
+    else:
+        speHandler = SPE(filename)
+        speHandler.spe2fits()
 
