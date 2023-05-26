@@ -18,3 +18,6 @@ It is recommended you use Python 3.11 to run this script from source. You'll nee
 
 After these are installed using pip: `python3 -m pip install packagename`, you can run the script just as above, but with the .py extension. Ex: `./spe2fits.py filename.SPE`.
 
+## Issues & Compatability
+Please refer to the issues page if you have any problems running the release or source on your machine. I will try my best to resolve them.
+
